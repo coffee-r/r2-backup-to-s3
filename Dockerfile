@@ -16,5 +16,6 @@ RUN chmod +x /app/backup.sh
 # rclone config is dynamically generated from environment variables
 # For local development, you can create rclone.conf manually (git-ignored)
 
-# Set default command
+# Override rclone's default ENTRYPOINT and set our script as the command
+ENTRYPOINT []
 CMD ["/app/backup.sh"]
