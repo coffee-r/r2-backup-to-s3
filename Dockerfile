@@ -9,13 +9,12 @@ RUN apk add --no-cache \
 # Set working directory
 WORKDIR /app
 
-# Copy scripts
+# Copy backup script
 COPY backup.sh /app/backup.sh
-COPY entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/backup.sh /app/entrypoint.sh
+RUN chmod +x /app/backup.sh
 
 # rclone config is dynamically generated from environment variables
 # For local development, you can create rclone.conf manually (git-ignored)
 
-# Set entrypoint
-ENTRYPOINT ["/app/entrypoint.sh"]
+# Set default command
+CMD ["/app/backup.sh"]
